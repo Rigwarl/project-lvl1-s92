@@ -1,6 +1,6 @@
 {
   "name": "brain-games",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "simple brain games",
   "scripts": {
     "babel-node": "babel-node",
@@ -8,7 +8,7 @@
   },
   "author": "Rigwarl",
   "license": "MIT",
-  "devDependency": {
+  "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
