@@ -1,10 +1,17 @@
 {
   "name": "brain-games",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "simple brain games",
   "scripts": {
+    "babel-node": "babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rigwarl",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependency": {
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*"
+  }
 }
