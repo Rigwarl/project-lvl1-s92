@@ -1,47 +1,52 @@
 import readlineSync from 'readline-sync';
 
-const askName = () => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!\n`);
+const getRandomInt = () => Math.floor(Math.random() * 100);
+const isEven = number => number % 2 === 0;
+const isRightEvenAnswer = (answer, number) => (isEven(number) && answer === 'yes') || (!isEven(number) && answer === 'no');
 
-  return name;
-};
+const askName = () => readlineSync.question('May I have your name? ');
+const askAnswer = () => readlineSync.question('Your answer: ');
 
-const askEvenQuestion = () => {
-  const number = Math.floor(Math.random() * 100);
-  console.log(`Question: ${number}`);
-
-  const answer = readlineSync.question('Your answer: ');
-
-  const isEven = number % 2 === 0;
-  const result = (answer === 'yes' && isEven) || (answer === 'no' && !isEven);
-
-  if (result) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven ? 'yes' : 'no'}'`);
-  }
-
-  return result;
-};
+const showWelcome = () => console.log('Welcome to the Brain Games!');
+const showGreeting = name => console.log(`Hello, ${name}!`);
+const showEvenRules = () => console.log('Answer "yes" if number even otherwise answer "no".');
+const showQuestion = question => console.log(`Question: ${question}`);
+const showAnswerWrong = (answer, rightAnswer) => console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'`);
+const showTryAgain = name => console.log(`Let's try again, ${name}!`);
+const showCorrect = () => console.log('Correct!');
+const showCongratulations = name => console.log(`Congratulations, ${name}!`);
 
 export const startIndexGame = () => {
-  console.log('Welcome to the Brain Games!\n');
-  askName();
+  showWelcome();
+  console.log('');
+
+  const name = askName();
+  showGreeting(name);
 };
 
 export const startEvenGame = () => {
-  console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if number even otherwise answer "no".\n');
+  showWelcome();
+  showEvenRules();
+  console.log('');
 
   const name = askName();
+  showGreeting(name);
+  console.log('');
 
   for (let i = 0; i < 3; i += 1) {
-    if (!askEvenQuestion()) {
-      console.log(`Let's try again, ${name}!`);
+    const number = getRandomInt();
+    showQuestion(number);
+
+    const answer = askAnswer();
+
+    if (!isRightEvenAnswer(answer, number)) {
+      showAnswerWrong(answer, isEven(number) ? 'yes' : 'no');
+      showTryAgain(name);
       return;
     }
+
+    showCorrect();
   }
 
-  console.log(`Congratulations, ${name}!`);
+  showCongratulations(name);
 };
