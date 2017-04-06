@@ -2,7 +2,6 @@ import readlineSync from 'readline-sync';
 
 const getRandomInt = () => Math.floor(Math.random() * 100);
 const isEven = number => number % 2 === 0;
-const isRightEvenAnswer = (answer, number) => (isEven(number) && answer === 'yes') || (!isEven(number) && answer === 'no');
 
 const askName = () => readlineSync.question('May I have your name? ');
 const askAnswer = () => readlineSync.question('Your answer: ');
@@ -38,9 +37,10 @@ export const startEvenGame = () => {
     showQuestion(number);
 
     const answer = askAnswer();
+    const rightAnswer = isEven(number) ? 'yes' : 'no';
 
-    if (!isRightEvenAnswer(answer, number)) {
-      showAnswerWrong(answer, isEven(number) ? 'yes' : 'no');
+    if (answer !== rightAnswer) {
+      showAnswerWrong(answer, rightAnswer);
       showTryAgain(name);
       return;
     }
