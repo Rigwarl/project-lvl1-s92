@@ -1,6 +1,8 @@
 import readlineSync from 'readline-sync';
 
-const startGame = (description, getGameStep, stepsCount = 3) => {
+const stepsCount = 3;
+
+const startGame = (description, getGameStep) => {
   console.log('Welcome to the Brain Games!');
   console.log(`${description}\n`);
 
