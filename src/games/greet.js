@@ -1,11 +1,10 @@
-import { showWelcome, showGreeting, askName } from '../io';
+import readlineSync from 'readline-sync';
 
 const startGreetGame = () => {
-  showWelcome();
-  console.log('');
+  console.log('Welcome to the Brain Games!\n');
 
-  const name = askName();
-  showGreeting(name);
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
 };
 
 export default startGreetGame;

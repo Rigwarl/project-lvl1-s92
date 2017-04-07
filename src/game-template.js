@@ -1,40 +1,28 @@
-import {
-  showWelcome,
-  showGreeting,
-  askName,
-  showQuestion,
-  showAnswerWrong,
-  showTryAgain,
-  showCorrect,
-  showCongratulations,
-  askAnswer,
-} from './io';
+import readlineSync from 'readline-sync';
 
 const startGame = (description, getGameStep, stepsCount = 3) => {
-  showWelcome();
-  console.log(description);
-  console.log('');
+  console.log('Welcome to the Brain Games!');
+  console.log(`${description}\n`);
 
-  const name = askName();
-  showGreeting(name);
-  console.log('');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!\n`);
 
   for (let i = 0; i < stepsCount; i += 1) {
     const { question, answer } = getGameStep();
-    showQuestion(question);
+    console.log(`Question: ${question}`);
 
-    const userAnswer = askAnswer();
+    const userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer !== answer) {
-      showAnswerWrong(userAnswer, answer);
-      showTryAgain(name);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'`);
+      console.log(`Let's try again, ${name}!`);
       return;
     }
 
-    showCorrect();
+    console.log('Correct!');
   }
 
-  showCongratulations(name);
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default startGame;
