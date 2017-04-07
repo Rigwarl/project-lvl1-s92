@@ -10,7 +10,7 @@ import {
   askAnswer,
 } from './io';
 
-const startBrainGame = (rules, getQuestion) => {
+const startBrainGame = (rules, getGame) => {
   showWelcome();
   console.log(rules);
   console.log('');
@@ -20,7 +20,7 @@ const startBrainGame = (rules, getQuestion) => {
   console.log('');
 
   for (let i = 0; i < 3; i += 1) {
-    const { question, answer } = getQuestion();
+    const { question, answer } = getGame();
     showQuestion(question);
 
     const userAnswer = askAnswer();

@@ -3,33 +3,36 @@ import startBrainGame from '../game-template';
 
 const rules = 'What is the result of the expression?';
 
-const calcExpression = (left, right, operation) => {
-  switch (operation) {
-    case '+':
-      return left + right;
-    case '-':
-      return left - right;
-    case '*':
-      return left * right;
-    default:
-  }
-
-  return NaN;
-};
-
-const operations = ['+', '-', '*'];
-
-const getQuestion = () => {
+const getGame = () => {
   const left = getRandomInt(20);
   const right = getRandomInt(20);
-  const operation = operations[getRandomInt(3)];
+
+  let operation = null;
+  let answer = null;
+
+  switch (getRandomInt(3)) {
+    case 0:
+      operation = '+';
+      answer = left + right;
+      break;
+    case 1:
+      operation = '-';
+      answer = left - right;
+      break;
+    case 2:
+      operation = '*';
+      answer = left * right;
+      break;
+    default:
+      break;
+  }
 
   const question = `${left} ${operation} ${right}`;
-  const answer = String(calcExpression(left, right, operation));
+  answer = String(answer);
 
   return { question, answer };
 };
 
-const startCalcGame = () => startBrainGame(rules, getQuestion);
+const startCalcGame = () => startBrainGame(rules, getGame);
 
 export default startCalcGame;

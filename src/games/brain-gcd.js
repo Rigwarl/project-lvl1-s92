@@ -11,7 +11,7 @@ const calcGcd = (a, b) => {
   return calcGcd(b, a % b);
 };
 
-const getQuestion = () => {
+const getGame = () => {
   // прибавим единичку чтобы не думать о пограничных случаях с 0
   const a = getRandomInt(30) + 1;
   const b = getRandomInt(30) + 1;
@@ -22,6 +22,6 @@ const getQuestion = () => {
   return { question, answer };
 };
 
-const startGcdGame = () => startBrainGame(rules, getQuestion);
+const startGcdGame = () => startBrainGame(rules, getGame);
 
 export default startGcdGame;
