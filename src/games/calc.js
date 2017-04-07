@@ -1,5 +1,5 @@
 import getRandomInt from '../random-int';
-import startBrainGame from '../game-template';
+import startGame from '../game-template';
 
 const rules = 'What is the result of the expression?';
 
@@ -33,6 +33,6 @@ const getGame = () => {
   return { question, answer };
 };
 
-const startCalcGame = () => startBrainGame(rules, getGame);
+const startCalcGame = () => startGame(rules, getGame);
 
 export default startCalcGame;

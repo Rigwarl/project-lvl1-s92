@@ -10,7 +10,7 @@ import {
   askAnswer,
 } from './io';
 
-const startBrainGame = (rules, getGame) => {
+const startGame = (rules, getGame) => {
   showWelcome();
   console.log(rules);
   console.log('');
@@ -37,4 +37,4 @@ const startBrainGame = (rules, getGame) => {
   showCongratulations(name);
 };
 
-export default startBrainGame;
+export default startGame;

@@ -1,5 +1,5 @@
 import getRandomInt from '../random-int';
-import startBrainGame from '../game-template';
+import startGame from '../game-template';
 
 const rules = 'Answer "yes" if number even otherwise answer "no".';
 
@@ -13,6 +13,6 @@ const getGame = () => {
   return { question, answer };
 };
 
-const startEvenGame = () => startBrainGame(rules, getGame);
+const startEvenGame = () => startGame(rules, getGame);
 
 export default startEvenGame;
