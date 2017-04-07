@@ -1,4 +1,4 @@
-import getRandomInt from '../random-int';
+import { getRandomInt } from '../utils';
 import startBrainGame from '../game-template';
 
 const rules = 'What is the result of the expression?';
