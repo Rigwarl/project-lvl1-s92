@@ -1,9 +1,9 @@
 import { getRandomInt } from '../utils';
-import startBrainGame from '../game-template';
+import startGame from '../game-template';
 
 const rules = 'What is the result of the expression?';
 
-const getGame = () => {
+const getGameStep = () => {
   const left = getRandomInt(20);
   const right = getRandomInt(20);
 
@@ -33,6 +33,6 @@ const getGame = () => {
   return { question, answer };
 };
 
-const startCalcGame = () => startBrainGame(rules, getGame);
+const startCalcGame = () => startGame(rules, getGameStep);
 
 export default startCalcGame;

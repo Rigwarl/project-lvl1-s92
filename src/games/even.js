@@ -1,18 +1,18 @@
 import { getRandomInt } from '../utils';
-import startBrainGame from '../game-template';
+import startGame from '../game-template';
 
 const rules = 'Answer "yes" if number even otherwise answer "no".';
 
 const isEven = number => number % 2 === 0;
 const getAnswer = number => (isEven(number) ? 'yes' : 'no');
 
-const getGame = () => {
+const getGameStep = () => {
   const question = getRandomInt(100);
   const answer = getAnswer(question);
 
   return { question, answer };
 };
 
-const startEvenGame = () => startBrainGame(rules, getGame);
+const startEvenGame = () => startGame(rules, getGameStep);
 
 export default startEvenGame;
