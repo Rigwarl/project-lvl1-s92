@@ -1,7 +1,7 @@
 import { getRandomInt } from '../utils';
 import startGame from '../game-template';
 
-const rules = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
 const getAnswer = (a, b) => {
   if (b === 0) {
@@ -22,6 +22,6 @@ const getGameStep = () => {
   return { question, answer };
 };
 
-const startGcdGame = () => startGame(rules, getGameStep);
+const startGcdGame = () => startGame(description, getGameStep);
 
 export default startGcdGame;

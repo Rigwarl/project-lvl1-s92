@@ -10,9 +10,9 @@ import {
   askAnswer,
 } from './io';
 
-const startGame = (rules, getGameStep, stepsCount = 3) => {
+const startGame = (description, getGameStep, stepsCount = 3) => {
   showWelcome();
-  console.log(rules);
+  console.log(description);
   console.log('');
 
   const name = askName();

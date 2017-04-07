@@ -1,7 +1,7 @@
 import { getRandomInt } from '../utils';
 import startGame from '../game-template';
 
-const rules = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const getGameStep = () => {
   const left = getRandomInt(20);
@@ -30,6 +30,6 @@ const getGameStep = () => {
   return { question, answer };
 };
 
-const startCalcGame = () => startGame(rules, getGameStep);
+const startCalcGame = () => startGame(description, getGameStep);
 
 export default startCalcGame;
