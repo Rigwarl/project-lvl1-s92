@@ -1,34 +1,35 @@
 import getRandomInt from '../random-int';
 import startBrainGame from '../game-template';
 
-const operations = ['+', '-', '*'];
-
 const rules = 'What is the result of the expression?';
 
-const getRandomExpression = () => `${getRandomInt(20)} ${operations[getRandomInt(3)]} ${getRandomInt(20)}`;
-
-const calcExpression = (expression) => {
-  const [left, operation, right] = expression.split(' ');
-  let result = Number(left);
-
+const calcExpression = (left, right, operation) => {
   switch (operation) {
     case '+':
-      result += Number(right);
-      break;
+      return left + right;
     case '-':
-      result -= Number(right);
-      break;
+      return left - right;
     case '*':
-      result *= Number(right);
-      break;
+      return left * right;
     default:
-      result = NaN;
-      break;
   }
 
-  return String(result);
+  return NaN;
 };
 
-const startCalcGame = () => startBrainGame(rules, getRandomExpression, calcExpression);
+const operations = ['+', '-', '*'];
+
+const getQuestion = () => {
+  const left = getRandomInt(20);
+  const right = getRandomInt(20);
+  const operation = operations[getRandomInt(3)];
+
+  const question = `${left} ${operation} ${right}`;
+  const answer = String(calcExpression(left, right, operation));
+
+  return { question, answer };
+};
+
+const startCalcGame = () => startBrainGame(rules, getQuestion);
 
 export default startCalcGame;
