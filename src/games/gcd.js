@@ -3,12 +3,12 @@ import startGame from '../game-template';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
-const calcGcd = (a, b) => {
+const getAnswer = (a, b) => {
   if (b === 0) {
-    return a;
+    return String(a);
   }
 
-  return calcGcd(b, a % b);
+  return getAnswer(b, a % b);
 };
 
 const getGameStep = () => {
@@ -17,7 +17,7 @@ const getGameStep = () => {
   const b = getRandomInt(30) + 1;
 
   const question = `${a} ${b}`;
-  const answer = String(calcGcd(a, b));
+  const answer = getAnswer(a, b);
 
   return { question, answer };
 };
