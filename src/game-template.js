@@ -10,7 +10,7 @@ import {
   askAnswer,
 } from './io';
 
-const startGame = (rules, getGameStep) => {
+const startGame = (rules, getGameStep, stepsCount = 3) => {
   showWelcome();
   console.log(rules);
   console.log('');
@@ -19,7 +19,7 @@ const startGame = (rules, getGameStep) => {
   showGreeting(name);
   console.log('');
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < stepsCount; i += 1) {
     const { question, answer } = getGameStep();
     showQuestion(question);
 
