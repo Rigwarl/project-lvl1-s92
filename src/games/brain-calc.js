@@ -3,7 +3,7 @@ import startBrainGame from '../game-template';
 
 const operations = ['+', '-', '*'];
 
-const showRules = () => console.log('What is the result of the expression?');
+const rules = 'What is the result of the expression?';
 
 const getRandomExpression = () => `${getRandomInt(20)} ${operations[getRandomInt(3)]} ${getRandomInt(20)}`;
 
@@ -29,6 +29,6 @@ const calcExpression = (expression) => {
   return String(result);
 };
 
-const startCalcGame = () => startBrainGame(showRules, getRandomExpression, calcExpression);
+const startCalcGame = () => startBrainGame(rules, getRandomExpression, calcExpression);
 
 export default startCalcGame;

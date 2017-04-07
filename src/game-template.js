@@ -10,9 +10,9 @@ import {
   askAnswer,
 } from './io';
 
-const startBrainGame = (showRules, getQuestion, getAnswer) => {
+const startBrainGame = (rules, getQuestion, getAnswer) => {
   showWelcome();
-  showRules();
+  console.log(rules);
   console.log('');
 
   const name = askName();

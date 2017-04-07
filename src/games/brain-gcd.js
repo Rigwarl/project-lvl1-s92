@@ -1,7 +1,7 @@
 import getRandomInt from '../random-int';
 import startBrainGame from '../game-template';
 
-const showRules = () => console.log('Find the greatest common divisor of given numbers.');
+const rules = 'Find the greatest common divisor of given numbers.';
 
 // прибавим единичку чтобы не думать о пограничных случаях с 0
 const getRandomNumbers = () => `${getRandomInt(30) + 1} ${getRandomInt(30) + 1}`;
@@ -20,6 +20,6 @@ const calcResult = (numbers) => {
   return String(calcGcd(a, b));
 };
 
-const startGcdGame = () => startBrainGame(showRules, getRandomNumbers, calcResult);
+const startGcdGame = () => startBrainGame(rules, getRandomNumbers, calcResult);
 
 export default startGcdGame;
