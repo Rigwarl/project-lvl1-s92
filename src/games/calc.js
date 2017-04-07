@@ -7,28 +7,25 @@ const getGameStep = () => {
   const left = getRandomInt(20);
   const right = getRandomInt(20);
 
-  let operation = null;
-  let answer = null;
+  let question = '';
+  let answer = '';
 
   switch (getRandomInt(3)) {
     case 0:
-      operation = '+';
-      answer = left + right;
+      question = `${left} + ${right}`;
+      answer = String(left + right);
       break;
     case 1:
-      operation = '-';
-      answer = left - right;
+      question = `${left} - ${right}`;
+      answer = String(left - right);
       break;
     case 2:
-      operation = '*';
-      answer = left * right;
+      question = `${left} * ${right}`;
+      answer = String(left * right);
       break;
     default:
       break;
   }
-
-  const question = `${left} ${operation} ${right}`;
-  answer = String(answer);
 
   return { question, answer };
 };
