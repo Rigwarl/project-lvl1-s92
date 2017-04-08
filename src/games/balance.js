@@ -14,7 +14,7 @@ const getAnswer = (number) => {
   const bigNumbersCount = digitsSum % length;
 
   return Array.from({ length }, (el, i) =>
-    (i >= length - bigNumbersCount ? smallNumber + 1 : smallNumber)).join(' ');
+    (i >= length - bigNumbersCount ? smallNumber + 1 : smallNumber)).join('');
 };
 
 const getGameStep = () => {
