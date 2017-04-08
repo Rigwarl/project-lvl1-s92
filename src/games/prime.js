@@ -4,7 +4,7 @@ import startGame from '../game-template';
 const description = 'Answer "yes" if number prime otherwise answer "no".';
 
 const isPrime = (number) => {
-  for (let i = 2; i < number ** 0.5; i += 1) {
+  for (let i = 2; i <= number ** 0.5; i += 1) {
     if (number % i === 0) {
       return false;
     }
