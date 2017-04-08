@@ -7,27 +7,25 @@ const getGameStep = () => {
   const left = getRandomInt(20);
   const right = getRandomInt(20);
 
-  let question = '';
-  let answer = '';
-
   switch (getRandomInt(3)) {
     case 0:
-      question = `${left} + ${right}`;
-      answer = String(left + right);
-      break;
+      return {
+        question: `${left} + ${right}`,
+        answer: String(left + right),
+      };
     case 1:
-      question = `${left} - ${right}`;
-      answer = String(left - right);
-      break;
+      return {
+        question: `${left} - ${right}`,
+        answer: String(left - right),
+      };
     case 2:
-      question = `${left} * ${right}`;
-      answer = String(left * right);
-      break;
+      return {
+        question: `${left} * ${right}`,
+        answer: String(left * right),
+      };
     default:
-      break;
+      return null;
   }
-
-  return { question, answer };
 };
 
 const startCalcGame = () => startGame(description, getGameStep);

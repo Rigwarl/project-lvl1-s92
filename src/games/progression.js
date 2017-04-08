@@ -15,10 +15,8 @@ const getGameStep = () => {
   const progressionArr = getProgression();
   const missingIndex = getRandomInt(progressionLength);
 
-  const questionArr = [...progressionArr];
-  questionArr[missingIndex] = '..';
-
-  const question = questionArr.join(' ');
+  const question = progressionArr.map((el, i) =>
+    (i === missingIndex ? '..' : el)).join(' ');
   const answer = String(progressionArr[missingIndex]);
 
   return { question, answer };
