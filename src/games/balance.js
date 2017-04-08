@@ -3,32 +3,18 @@ import startGame from '../game-template';
 
 const description = 'Balance the given number.';
 
-const sumDigits = (number) => {
-  const numberStr = String(number);
-  let sum = 0;
-
-  for (let i = 0; i < numberStr.length; i += 1) {
-    sum += Number(numberStr[i]);
-  }
-
-  return sum;
-};
+const sumDigits = number =>
+  String(number).split('').reduce((acc, val) => acc + Number(val), 0);
 
 const getAnswer = (number) => {
   const length = String(number).length;
   const digitsSum = sumDigits(number);
 
-  const base = Math.floor(digitsSum / length);
-  const rest = digitsSum % length;
+  const smallNumber = Math.floor(digitsSum / length);
+  const bigNumbersCount = digitsSum % length;
 
-  let answer = '';
-
-  for (let i = 0; i < length; i += 1) {
-    const needUp = i >= length - rest;
-    answer += needUp ? base + 1 : base;
-  }
-
-  return answer;
+  return Array.from({ length }, (el, i) =>
+    (i >= length - bigNumbersCount ? smallNumber + 1 : smallNumber)).join(' ');
 };
 
 const getGameStep = () => {
